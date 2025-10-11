@@ -264,14 +264,6 @@ public class InCallFragment extends Fragment
 
     inCallScreenDelegate.onInCallScreenDelegateInit(this);
     inCallScreenDelegate.onInCallScreenReady();
-    final int audioRoute = inCallButtonUiDelegate.getCurrentAudioState().getRoute();
-    if (inCallButtonUiDelegate instanceof final com.android.incallui.CallButtonPresenter presenter
-        && audioRoute != CallAudioState.ROUTE_SPEAKER
-        && audioRoute != CallAudioState.ROUTE_BLUETOOTH) {
-      presenter.setAudioRoute(audioRoute);
-//	    presenter.enableSpeakerphone();
-//	    presenter.disableSpeakerphone();
-    }
   }
 
   @Override
