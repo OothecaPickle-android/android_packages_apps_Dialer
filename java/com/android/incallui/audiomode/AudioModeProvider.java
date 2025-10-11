@@ -76,7 +76,8 @@ public class AudioModeProvider {
    * route back to earpiece when a call ends.
    */
   public void initializeAudioState(Context context) {
-    new CallAudioState(false, CallAudioState.ROUTE_SPEAKER, CallAudioState.ROUTE_SPEAKER));
+    onAudioStateChanged(
+        new CallAudioState(false, CallAudioState.ROUTE_SPEAKER, CallAudioState.ROUTE_SPEAKER));
     onAudioStateChanged(
         new CallAudioState(false, getApproximatedAudioRoute(context), SUPPORTED_AUDIO_ROUTE_ALL));
   }
