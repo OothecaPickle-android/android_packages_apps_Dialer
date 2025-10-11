@@ -75,7 +75,6 @@ import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryCallState.ButtonState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.incall.protocol.SecondaryInfo;
-import com.android.incallui.audiomode.AudioModeProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -265,11 +264,6 @@ public class InCallFragment extends Fragment
 
     inCallScreenDelegate.onInCallScreenDelegateInit(this);
     inCallScreenDelegate.onInCallScreenReady();
-    private final com.android.incallui.CallButtonPresenter presenter;
-    if (inCallButtonUiDelegate instanceof presenter && presenter.getCurrentAudioState().getRoute() != CallAudioState.ROUTE_SPEAKER) {
-	    presenter.enableSpeakerphone();
-	    presenter.disableSpeakerphone();
-    }
   }
 
   @Override
