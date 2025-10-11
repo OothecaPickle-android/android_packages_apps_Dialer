@@ -77,6 +77,7 @@ public class AudioModeProvider {
    */
   public void initializeAudioState(Context context) {
     onAudioStateChanged(
+        new CallAudioState(false, CallAudioState.ROUTE_SPEAKER, CallAudioState.ROUTE_SPEAKER));
         new CallAudioState(false, getApproximatedAudioRoute(context), SUPPORTED_AUDIO_ROUTE_ALL));
   }
 

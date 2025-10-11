@@ -195,7 +195,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
     setWindowFlags();
     setContentView(R.layout.incall_screen);
     internalResolveIntent(getIntent());
-    toggleSpeakerOnCallStart();
+    //toggleSpeakerOnCallStart();
 
     boolean isLandscape =
         getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
