@@ -195,6 +195,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
     setWindowFlags();
     setContentView(R.layout.incall_screen);
     internalResolveIntent(getIntent());
+    toggleSpeakerOnCreate();
 
     boolean isLandscape =
         getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
@@ -267,6 +268,19 @@ public class InCallActivity extends TransactionSafeFragmentActivity
     }
 
     getWindow().addFlags(flags);
+  }
+
+  private void toggleSpeakerOnCreate() {
+    final int currentAudioRoute = getAudioRoute();
+    if (currentAudioRoute != CallAudioState.ROUTE_SPEAKER
+        && currentAudioRoute != CallAudioState.ROUTE_BLUETOOTH) {
+      LogUtil.i("InCallActivity.toggleSpeakerOnCreate",
+          "Setting audio route to %s, then back to %s",
+          CallAudioState.audioRouteToString(CallAudioState.ROUTE_SPEAKER),
+          CallAudioState.audioRouteToString(currentAudioRoute));
+      TelecomAdapter.getInstance().setAudioRoute(CallAudioState.ROUTE_SPEAKER);
+      TelecomAdapter.getInstance().setAudioRoute(currentAudioRoute);
+    }
   }
 
   private static int getAudioRoute() {
