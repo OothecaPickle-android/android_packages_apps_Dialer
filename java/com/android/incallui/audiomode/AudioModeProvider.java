@@ -108,7 +108,7 @@ public class AudioModeProvider {
       return CallAudioState.ROUTE_WIRED_HEADSET;
     }
     LogUtil.i("AudioModeProvider.getApproximatedAudioRoute", "Routing to earpiece");
-    return CallAudioState.ROUTE_WIRED_OR_EARPIECE;
+    return CallAudioState.ROUTE_EARPIECE;
   }
 
   /** Notified on changes to audio mode. */
