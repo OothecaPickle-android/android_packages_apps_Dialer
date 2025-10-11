@@ -272,11 +272,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
 
   private void toggleSpeakerOnCallStart() {
     final int audioRoute = getAudioRoute();
-    //is checking that neither getSupportedRouteMask()
-    //nor getAudioRoute() contain ROUTE_BLUETOOTH redundant?
-    if (audioRoute != CallAudioState.ROUTE_SPEAKER && audioRoute != CallAudioState.ROUTE_BLUETOOTH
-        && 0 == (CallAudioState.ROUTE_BLUETOOTH
-        & AudioModeProvider.getInstance().getAudioState().getSupportedRouteMask())) {
+    if (audioRoute != CallAudioState.ROUTE_SPEAKER && audioRoute != CallAudioState.ROUTE_BLUETOOTH) {
       TelecomAdapter.getInstance().setAudioRoute(CallAudioState.ROUTE_SPEAKER);
       TelecomAdapter.getInstance().setAudioRoute(audioRoute);
     }
